@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "webchannel_id": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

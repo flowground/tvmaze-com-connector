@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "tag_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "show_id": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

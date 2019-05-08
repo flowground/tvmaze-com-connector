@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "embed": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "show"
+            ]
+        }
+    }
+}

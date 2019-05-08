@@ -1,0 +1,605 @@
+{
+    "title": "TVmaze user",
+    "description": "Access to the user API is only possible for users with a [premium](http://www.tvmaze.com/premium) account. A user can only access their own user data.\n\nAuthentication uses HTTP Basic. Use the TVmaze username as authentication username, and the TVmaze API key as authentication password. Your API key can be found on your [dashboard](http://www.tvmaze.com/dashboard). To try out these API calls from this page, click the \"Authorize\" button on top and input your credentials.\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/tvmaze.com/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.tvmaze.com/v1",
+                    "http://api.tvmaze.com/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "username": {
+                "label": "Username (usertoken)",
+                "viewClass": "TextFieldView"
+            },
+            "password": {
+                "label": "Password (usertoken)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_user_episodes": {
+            "main": "./lib/actions/get_user_episodes.js",
+            "title": "List the marked episodes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_episodes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_episodes__episode_id_": {
+            "main": "./lib/actions/delete_user_episodes__episode_id_.js",
+            "title": "Unmark an episode",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_episodes__episode_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_episodes__episode_id_": {
+            "main": "./lib/actions/get_user_episodes__episode_id_.js",
+            "title": "Check if an episode is marked",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_episodes__episode_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_episodes__episode_id_": {
+            "main": "./lib/actions/put_user_episodes__episode_id_.js",
+            "title": "Mark an episode",
+            "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_episodes__episode_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_networks": {
+            "main": "./lib/actions/get_user_follows_networks.js",
+            "title": "List the followed networks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_networks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_follows_networks__network_id_": {
+            "main": "./lib/actions/delete_user_follows_networks__network_id_.js",
+            "title": "Unfollow a network",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_follows_networks__network_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_networks__network_id_": {
+            "main": "./lib/actions/get_user_follows_networks__network_id_.js",
+            "title": "Check if a network is followed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_networks__network_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_follows_networks__network_id_": {
+            "main": "./lib/actions/put_user_follows_networks__network_id_.js",
+            "title": "Follow a network",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_follows_networks__network_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_people": {
+            "main": "./lib/actions/get_user_follows_people.js",
+            "title": "List the followed people",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_people.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_follows_people__person_id_": {
+            "main": "./lib/actions/delete_user_follows_people__person_id_.js",
+            "title": "Unfollow a person",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_follows_people__person_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_people__person_id_": {
+            "main": "./lib/actions/get_user_follows_people__person_id_.js",
+            "title": "Check if a person is followed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_people__person_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_follows_people__person_id_": {
+            "main": "./lib/actions/put_user_follows_people__person_id_.js",
+            "title": "Follow a person",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_follows_people__person_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_shows": {
+            "main": "./lib/actions/get_user_follows_shows.js",
+            "title": "List the followed shows",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_shows.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_follows_shows__show_id_": {
+            "main": "./lib/actions/delete_user_follows_shows__show_id_.js",
+            "title": "Unfollow a show",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_follows_shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_shows__show_id_": {
+            "main": "./lib/actions/get_user_follows_shows__show_id_.js",
+            "title": "Check if a show is followed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_follows_shows__show_id_": {
+            "main": "./lib/actions/put_user_follows_shows__show_id_.js",
+            "title": "Follow a show",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_follows_shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_webchannels": {
+            "main": "./lib/actions/get_user_follows_webchannels.js",
+            "title": "List the followed webchannels",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_webchannels.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_follows_webchannels__webchannel_id_": {
+            "main": "./lib/actions/delete_user_follows_webchannels__webchannel_id_.js",
+            "title": "Unfollow a webchannel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_follows_webchannels__webchannel_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_follows_webchannels__webchannel_id_": {
+            "main": "./lib/actions/get_user_follows_webchannels__webchannel_id_.js",
+            "title": "Check if a webchannel is followed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_follows_webchannels__webchannel_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_follows_webchannels__webchannel_id_": {
+            "main": "./lib/actions/put_user_follows_webchannels__webchannel_id_.js",
+            "title": "Follow a webchannel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_follows_webchannels__webchannel_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_tags": {
+            "main": "./lib/actions/get_user_tags.js",
+            "title": "List all tags",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_tags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_user_tags": {
+            "main": "./lib/actions/post_user_tags.js",
+            "title": "Create a new tag",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_user_tags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_tags__tag_id_": {
+            "main": "./lib/actions/delete_user_tags__tag_id_.js",
+            "title": "Delete a specific tag",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_tags__tag_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "patch_user_tags__tag_id_": {
+            "main": "./lib/actions/patch_user_tags__tag_id_.js",
+            "title": "Update a specific tag",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/patch_user_tags__tag_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_tags__tag_id__shows": {
+            "main": "./lib/actions/get_user_tags__tag_id__shows.js",
+            "title": "List all shows under this tag",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_tags__tag_id__shows.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_tags__tag_id__shows__show_id_": {
+            "main": "./lib/actions/delete_user_tags__tag_id__shows__show_id_.js",
+            "title": "Untag a show",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_tags__tag_id__shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_tags__tag_id__shows__show_id_": {
+            "main": "./lib/actions/put_user_tags__tag_id__shows__show_id_.js",
+            "title": "Tag a show",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_tags__tag_id__shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_votes_episodes": {
+            "main": "./lib/actions/get_user_votes_episodes.js",
+            "title": "List the episodes voted for",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_votes_episodes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_votes_episodes__episode_id_": {
+            "main": "./lib/actions/delete_user_votes_episodes__episode_id_.js",
+            "title": "Remove an episode vote",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_votes_episodes__episode_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_votes_episodes__episode_id_": {
+            "main": "./lib/actions/get_user_votes_episodes__episode_id_.js",
+            "title": "Check if an episode is voted for",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_votes_episodes__episode_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_votes_episodes__episode_id_": {
+            "main": "./lib/actions/put_user_votes_episodes__episode_id_.js",
+            "title": "Vote for an episode",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_votes_episodes__episode_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_votes_shows": {
+            "main": "./lib/actions/get_user_votes_shows.js",
+            "title": "List the shows voted for",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_votes_shows.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_user_votes_shows__show_id_": {
+            "main": "./lib/actions/delete_user_votes_shows__show_id_.js",
+            "title": "Remove a show vote",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_user_votes_shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_user_votes_shows__show_id_": {
+            "main": "./lib/actions/get_user_votes_shows__show_id_.js",
+            "title": "Check if a show is voted for",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_user_votes_shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_user_votes_shows__show_id_": {
+            "main": "./lib/actions/put_user_votes_shows__show_id_.js",
+            "title": "Vote for a show",
+            "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_user_votes_shows__show_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

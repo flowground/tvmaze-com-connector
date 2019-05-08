@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "show_id": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "network_id": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

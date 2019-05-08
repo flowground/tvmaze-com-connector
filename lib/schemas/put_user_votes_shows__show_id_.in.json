@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "show_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "show_id": {
+                    "readOnly": true,
+                    "type": "integer"
+                },
+                "vote": {
+                    "description": "The vote number",
+                    "maximum": 10,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "voted_at": {
+                    "description": "Epoch timestamp for when the user voted for the episode",
+                    "readOnly": true,
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

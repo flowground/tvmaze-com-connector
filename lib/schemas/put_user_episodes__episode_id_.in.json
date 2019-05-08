@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "episode_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "episode_id": {
+                    "readOnly": true,
+                    "type": "integer"
+                },
+                "marked_at": {
+                    "description": "Epoch timestamp for when the user watched the episode, or 0 for unknown.",
+                    "type": "integer"
+                },
+                "type": {
+                    "description": "0 for watched, 1 for acquired, 2 for skipped",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

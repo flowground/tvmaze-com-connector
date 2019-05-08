@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "tag_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "id": {
+                    "readOnly": true,
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

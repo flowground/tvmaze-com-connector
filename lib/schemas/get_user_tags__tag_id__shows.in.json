@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "tag_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "embed": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "show"
+            ]
+        }
+    }
+}
